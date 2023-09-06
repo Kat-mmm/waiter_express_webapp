@@ -1,0 +1,41 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/waiter.css">
+    <title>Waiter Scheduling App</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left"></div>
+        <div class="register-container">
+            <div class="login">
+                <div>
+                    <img src="/images/logo.jpg" alt="logo" class="logo">
+                </div>
+                <form action="/register" method="post">
+                    <section>
+                        <label for="name">Name</label>
+                        <input id="username" name="name" type="text" autocomplete="name" required autofocus>
+                    </section>
+                    <section>
+                        <label for="name">Email</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required autofocus>
+                    </section>
+                    <section>
+                        <label for="current-password">Password</label>
+                        <input id="current-password" name="password" type="password" autocomplete="current-password"
+                            required>
+                    </section>
+                    <button type="submit">Register</button>
+                </form>
+                <a href="/login">Already Registered? Sign In</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

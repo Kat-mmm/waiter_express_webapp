@@ -1,0 +1,243 @@
+html{
+    font-family: 'Inter';
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    color: #7c7d7f;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.left{
+    background-color: rgb(236, 184, 87);
+}
+
+.login-container, .register-container{
+    display: grid;
+    place-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.login, .login form section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.login-container form label, .register-container form label{
+    align-self: flex-start;
+}
+
+.login{
+    width: 100%;
+}
+
+.login form{
+    width: 50%;
+}
+
+.login input{
+    width: 100%;
+    padding: 7px;
+}
+
+.login button, .admin-button{
+    margin-top: 17px;
+    background-color: rgb(64, 107, 64);
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 200px;
+    font-family: 'Inter';
+    border-radius: 6px;
+    font-size: medium;
+    cursor: pointer;
+}
+
+
+.login button:hover{
+    background-color: rgb(84, 150, 84);
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    box-shadow: 0px 6px 6px rgb(228, 227, 227);
+}
+
+.logo{
+    width: 120px;
+    height: 100%;
+    object-fit: cover;
+    margin: 20px;
+}
+
+nav a{
+    margin: 30px;
+    color: #7c7d7f;
+    text-decoration: none;
+}
+
+nav a:hover{
+    color: #9FA6B2;
+}
+
+.waiter-container{
+    margin-left: 50px;
+    display: flex;
+    gap: 200px;
+}
+
+.days{
+    padding: 10px;
+}
+
+.days li{
+    list-style-type: none;
+    margin-bottom: 10px;
+    font-size: large;
+}
+
+.waiter-container button, .clear{
+    background-color: rgb(89, 89, 241);
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 180px;
+    border-radius: 6px;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.schedule{
+    width: 100%;
+    margin-top: 10px;
+    display: grid;
+    place-items: center;
+}
+
+.schedule h2{
+    text-align: center;
+}
+
+/* *{
+    border: 1px solid red;
+} */
+
+.board{
+    width: 95%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    height: fit-content;
+    margin-bottom: 8px;
+    padding-bottom: 20px;
+}
+
+.day{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-left: 1px solid #7c7d7f;
+}
+
+.day h4{
+    border-bottom: 1px solid #7c7d7f;
+    padding-bottom: 18px;
+    justify-self: center;
+}
+
+.waiter-cards-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.waiter-card{
+    background-color: transparent;
+    border-radius: 8px;
+    color: white;
+    width: 97%;
+    height: fit-content;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.green {
+    background-color: green; /* Green for 3 or more waiters */
+    /* Add other styles as needed */
+}
+
+.orange {
+    background-color: orange; /* Orange for less than 3 waiters */
+    /* Add other styles as needed */
+}
+
+.red {
+    background-color: red; /* Red for empty slots or errors */
+    /* Add other styles as needed */
+}
+
+.guide{
+    align-self: flex-end;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.guide-colors{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box1{
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background-color: orange;
+}
+
+.box2{
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background-color: green;
+}
+
+.box3{
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    background-color: red;
+}
+
+.guide-names{
+    margin: 0;
+    font-size: small;
+}
+
+
+

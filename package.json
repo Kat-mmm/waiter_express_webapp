@@ -1,0 +1,35 @@
+{
+  "name": "waiter_express_webapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kat-mmm/waiter_express_webapp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kat-mmm/waiter_express_webapp/issues"
+  },
+  "homepage": "https://github.com/Kat-mmm/waiter_express_webapp#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-flash": "^0.0.2",
+    "express-handlebars": "^7.1.2",
+    "express-session": "^1.17.3",
+    "mocha": "^10.2.0",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pg-promise": "^11.5.4"
+  }
+}
