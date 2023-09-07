@@ -49,11 +49,18 @@ export default function AuthRoutes(waiterService, bcrypt){
         res.render('index');
     }
 
+    function logout(req, res) {
+        req.session.destroy(() => {
+            res.redirect('/');
+        });
+    }
+
     return{
         login,
         getLogin,
         getRegister,
         register,
-        index
+        index,
+        logout
     }
 }

@@ -2,7 +2,8 @@ CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
+    password VARCHAR(255) NOT NULL,
+    is_admin BOOLEAN NOT NULL
 );
 
 
@@ -31,4 +32,3 @@ CREATE TABLE waiter_selected_days (
     waiter_id INT REFERENCES users(id),
     day_id INT REFERENCES days(day_id)
 );
-
