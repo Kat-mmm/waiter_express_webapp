@@ -15,14 +15,14 @@
     <div class="waiter-container">
         <form action="/waiter" method="POST">
             <h3>Hi {{name}}, please select the days you would like to work on:</h3>
-            <ul class="days">
-                <li><input type="checkbox" name="day" value="1"> Monday</li>
-                <li><input type="checkbox" name="day" value="2"> Tuesday</li>
-                <li><input type="checkbox" name="day" value="3"> Wednesday</li>
-                <li><input type="checkbox" name="day" value="4"> Thursday</li>
-                <li><input type="checkbox" name="day" value="5"> Friday</li>
-                <li><input type="checkbox" name="day" value="6"> Saturday</li>
-                <li><input type="checkbox" name="day" value="7"> Sunday</li>
+            <ul class="days" >
+                <li><input type="checkbox" name="day" {{#each modifiedDays}} {{#if this.Monday}} checked {{/if}} {{/each}} value="1"> Monday</li>
+                <li><input type="checkbox" name="day" {{#each modifiedDays}} {{#if this.Tuesday}} checked {{/if}} {{/each}} value="2"> Tuesday</li>
+                <li><input type="checkbox" name="day" {{#each modifiedDays}} {{#if this.Wednesday}} checked {{/if}} {{/each}} value="3"> Wednesday</li>
+                <li><input type="checkbox" name="day" {{#each modifiedDays}} {{#if this.Thursday}} checked {{/if}} {{/each}} value="4"> Thursday</li>
+                <li><input type="checkbox" name="day" {{#each modifiedDays}} {{#if this.Friday}} checked {{/if}} {{/each}} value="5"> Friday</li>
+                <li><input type="checkbox" name="day" {{#each modifiedDays}} {{#if this.Saturday}} checked {{/if}} {{/each}} value="6"> Saturday</li>
+                <li><input type="checkbox" name="day" {{#each modifiedDays}} {{#if this.Sunday}} checked {{/if}} {{/each}} value="7"> Sunday</li>
             </ul>
             <button type="submit">Done</button>
         </form>
@@ -37,5 +37,26 @@
             </div>
         {{/if}}
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the list of selected days from the data attribute
+            const selectedDaysString = document.querySelector('.days').getAttribute('data-days');
+            
+            // Parse the string into an array of objects
+            const selectedDays = JSON.parse(selectedDaysString);
+
+            // Get all the checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][name="day"]');
+            
+            checkboxes.forEach(function(checkbox) {
+                const value = checkbox.value;
+                const isChecked = selectedDays.some(day => day.day_id === parseInt(value));
+
+                if (isChecked) {
+                    checkbox.checked = true;
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -34,7 +34,7 @@ export default function WaiterDatabase(db){
     }
 
     async function getSelectedDays(userId){
-        let result = await db.any('SELECT d.day_name FROM waiter_selected_days wd JOIN days d ON wd.day_id = d.day_id WHERE wd.waiter_id = $1', [userId]);
+        let result = await db.any('SELECT d.day_name, d.day_id FROM waiter_selected_days wd JOIN days d ON wd.day_id = d.day_id WHERE wd.waiter_id = $1', [userId]);
 
         return result;
     }

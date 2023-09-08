@@ -126,6 +126,7 @@ nav a:hover{
     margin-top: 10px;
     display: grid;
     place-items: center;
+    margin-bottom: 50px;
 }
 
 .schedule h2{

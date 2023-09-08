@@ -22,8 +22,13 @@ export default function WaiterRoutes(waiterService){
     
         try {
             const selectedDays = await waiterService.getSelectedDays(userId);
-    
-            res.render('dashboard', { name: req.session.user.name, selectedDays });
+
+            const modifiedDays = selectedDays.map(day => {
+                const { day_name, ...rest } = day;
+                return { ...rest, [day_name]: true, day_id: day.day_id };
+            });
+                  
+            res.render('dashboard', { name: req.session.user.name, selectedDays, modifiedDays });
         } catch (error) {
             console.error('Error fetching selected days:', error);
             res.status(500).send('Internal Server Error');
