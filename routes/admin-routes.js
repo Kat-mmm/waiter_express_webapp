@@ -1,6 +1,6 @@
 export default function AdminRoutes(db){
     async function clearSchedule(req, res) {
-        await waiterService.clearSchedule();
+        await db.clearSchedule();
 
         res.redirect("/days")
     }
