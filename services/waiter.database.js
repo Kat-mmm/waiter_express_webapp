@@ -15,6 +15,12 @@ export default function WaiterDatabase(db){
         return result;
     }
 
+    async function getUsers(){
+        let result = await db.any(`SELECT * FROM users`);
+
+        return result;
+    }
+
     async function clearSchedule() {
         try {
             await db.none('DELETE FROM waiter_selected_days');
@@ -60,6 +66,7 @@ export default function WaiterDatabase(db){
         deleteWaiterDays,
         addWaiterDays,
         getSelectedDays,
-        getAdminSchedule
+        getAdminSchedule,
+        getUsers
     }
 }

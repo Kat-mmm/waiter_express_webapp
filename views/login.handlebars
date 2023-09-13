@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
     <link rel="stylesheet" href="/css/waiter.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <title>Waiter Scheduling App</title>
 </head>
 
@@ -16,10 +20,10 @@
                 <div>
                     <img src="/images/logo.jpg" alt="logo" class="logo">
                 </div>
+                {{#if messages.error}}
+                        <div class="error-message animate__shakeX">{{messages.error}}</div>
+                {{/if}}
                 <form action="/login" method="post">
-                    {{#if messages.error}}
-                    <div class="error-message">{{messages.error}}</div>
-                    {{/if}}
                     <section>
                         <label for="username">Username</label>
                         <input id="username" name="email" type="text" autocomplete="email" required autofocus>
@@ -35,5 +39,13 @@
         </div>
     </div>
 </body>
+<script>
+    const errorEl = document.querySelector('.error-message');
+
+    setTimeout(function(){
+        errorEl.textContent = '';
+    }, 3000);
+
+</script>
 
 </html>

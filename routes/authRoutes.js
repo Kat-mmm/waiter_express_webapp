@@ -11,6 +11,7 @@ export default function AuthRoutes(waiterService, bcrypt){
                 res.redirect('/waiter'); // Redirect non-admin users to dashboard
             }
         } else {
+            req.flash('error', 'Invalid username or password');
             res.redirect('/login');
         }
     }

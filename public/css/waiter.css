@@ -240,5 +240,9 @@ nav a:hover{
     font-size: small;
 }
 
+.error-message{
+    color: red;
+}
+
 
 
