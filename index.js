@@ -16,8 +16,8 @@ const waiterRoutes = WaiterRoutes(waiterService);
 const authRoutes = AuthRoutes(waiterService, bcrypt);
 const adminRoutes = AdminRoutes(waiterService);
 
-let app = express();
 
+let app = express();
 
 app.engine('handlebars', engine({ 
     defaultLayout: false,
@@ -51,7 +51,7 @@ app.post('/waiter', authenticateUser, waiterRoutes.setWaiterDays)
 //Admin Routes
 app.get('/days', authenticateUser, checkAdmin, adminRoutes.getWeeklySchedule);
 app.post('/days/clear', adminRoutes.clearSchedule);
-
+app.post('/reschedule', authenticateUser, checkAdmin, adminRoutes.rescheduleWaiters);
 
 function authenticateUser(req, res, next) {
     if (req.session.user) {

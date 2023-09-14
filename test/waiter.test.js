@@ -54,6 +54,30 @@ describe("The restaurant booking table", function () {
         assert.strictEqual(fetchedUser.email, 'Jim@gmail.com');
     });
 
+    it("should be able to get selected days for a waiter", async function () {
+        let waiterScheduling = WaiterDatabase(db);
+
+        const hashedPassword = await bcrypt.hash('userPrice', 10);
+
+        const user = await waiterScheduling.addUser('Prince', 'Prince@gmail.com', hashedPassword);
+        await waiterScheduling.addWaiterDays(user.id, 1);
+
+        const selectedDays = await waiterScheduling.getSelectedDays(user.id);
+        assert.strictEqual(selectedDays.length, 1);
+    });
+
+    it("should be able to get admin schedule", async function () {
+        let waiterScheduling = WaiterDatabase(db);
+
+        const hashedPassword = await bcrypt.hash('sammy', 10);
+
+        const user = await waiterScheduling.addUser('Samuel Bryce', 'sam@gmail.com', hashedPassword);
+        await waiterScheduling.addWaiterDays(user.id, 1);
+
+        const adminSchedule = await waiterScheduling.getAdminSchedule();
+        assert.strictEqual(adminSchedule.length, 1);
+    });
+
     it("should be able to clear schedule", async function () {
         let waiterScheduling = WaiterDatabase(db);
 
@@ -66,18 +90,6 @@ describe("The restaurant booking table", function () {
 
         const selectedDays = await waiterScheduling.getSelectedDays(user.id);
         assert.strictEqual(selectedDays.length, 0);
-    });
-
-    it("should be able to get selected days for a waiter", async function () {
-        let waiterScheduling = WaiterDatabase(db);
-
-        const hashedPassword = await bcrypt.hash('userPrice', 10);
-
-        const user = await waiterScheduling.addUser('Prince', 'Prince@gmail.com', hashedPassword);
-        await waiterScheduling.addWaiterDays(user.id, 1);
-
-        const selectedDays = await waiterScheduling.getSelectedDays(user.id);
-        assert.strictEqual(selectedDays.length, 1);
     });
 
     after(function () {

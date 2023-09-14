@@ -244,5 +244,33 @@ nav a:hover{
     color: red;
 }
 
+.reschedule-section{
+    display: grid;
+    place-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
 
+.reschedule-section form{
+    display: grid;
+    place-items: center;
+}
+
+.drops{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.top-drop{
+    align-self: start;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.top-drop select{
+    padding: 10px;
+    width: 200px;
+}
 

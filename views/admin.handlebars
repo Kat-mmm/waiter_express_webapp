@@ -40,7 +40,36 @@
                 </div>
             {{/each}}
         </div>
-        <button class="admin-button">Clear Schedule</button>
+        <div class="admin-btns">
+            <button class="admin-button">Clear Schedule</button>
+        </div>
+
+        <div class="reschedule-section">
+            <h2>Reschedule Waiter</h2>
+            <form action="/reschedule" method="POST">
+                <div class="drops">
+                    <div class="top-drop">
+                        <label for="waiter-select">Select Waiter:</label>
+                        <select id="waiter-select" name="waiter">
+                            {{#each waiters}}
+                                <option value="{{this.id}}">{{this.name}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                    <br>
+
+                    <div>
+                        <label>Select New Day(s):</label>
+                        <ul class="days">
+                            {{#each days}}
+                                <li><input type="checkbox" name="day" value="{{this.day_name}}"> {{this.day_name}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <button type="submit" class="admin-button reschedule-btn">Reschedule</button>
+            </form>
+        </div>
     </div>
 </body>
 
@@ -88,6 +117,7 @@
             }
         }
     });
+
 </script>
 </html>
 

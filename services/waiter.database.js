@@ -45,9 +45,15 @@ export default function WaiterDatabase(db){
         return result;
     }
 
+    async function getDays(){
+        const result = await db.any(`SELECT day_name FROM days`);
+
+        return result
+    }
+
     async function getAdminSchedule(){
         const query = `
-                SELECT days.day_name, users.name, users.email
+                SELECT days.day_name, users.name, users.email, users.id
                 FROM waiter_selected_days
                 JOIN days ON waiter_selected_days.day_id = days.day_id
                 JOIN users ON waiter_selected_days.waiter_id = users.id
@@ -58,6 +64,10 @@ export default function WaiterDatabase(db){
         return result;
     }
 
+    async function deleteWaiter(waiter){
+        await db.none('DELETE FROM waiter_selected_days WHERE waiter_id = $1', waiter);
+    }
+    
     return{
         getUserByEmail,
         getUserById,
@@ -67,6 +77,8 @@ export default function WaiterDatabase(db){
         addWaiterDays,
         getSelectedDays,
         getAdminSchedule,
-        getUsers
+        getUsers,
+        getDays,
+        deleteWaiter
     }
 }
